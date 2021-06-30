@@ -4,7 +4,7 @@
   "description": "An Electron Application",
   "main": "index.js",
   "scripts": {
-    "test": "echo Test"
+    "test": "test"
   },
   "author": "Admiral Canaris & m110",
   "license": "MIT",
