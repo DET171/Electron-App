@@ -4,11 +4,12 @@
   "description": "An Electron Application",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "electron ."
   },
   "author": "Admiral Canaris & m110",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^13.1.4"
+    "electron": "^13.1.4",
+    "eslint": "^7.29.0"
   }
 }
