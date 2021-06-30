@@ -4,12 +4,17 @@
   "description": "An Electron Application",
   "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron-forge start",
+    "import": "electron-forge import",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "author": "Admiral Canaris & m110",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^13.1.4",
-    "eslint": "^7.29.0"
+    "electron": "^13.1.4"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
   }
 }

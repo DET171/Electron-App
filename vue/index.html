@@ -1,0 +1,206 @@
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+<script>
+function openNav() {
+  document.getElementById("myNav").style.width = "50%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+console.log("If some functions don't work, try reloading the page.");
+</script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Filtered &amp; Sorted PF Gun List</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css">
+	<link rel="stylesheet" href="src/list.css">
+	<link rel="icon" href="src/pficon.png">
+		<script async src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+	<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+	<script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+
+<script>
+
+ 
+</script>
+	<script async src="src/list.js"></script>
+</head>
+
+<body>
+
+<div id="warn">Please rotate or widen your browser window.</div>
+<center>
+		<div id="load" class="load">
+		  <div class="loader"></div>
+		</div>
+<span>If some functions don't work, try reloading the page.</span>
+</center>
+
+  
+  
+
+      
+	<main id="main" class="hide ">
+		<h1 class="ui center aligned header">{{ heading }}</h1>
+		<div class="ui container"><div id="searchcontainer">
+      
+  <input class="searchbar" v-model="filterByName" placeholder="Search By Name" oninput="handleInput(event)">
+  
+<button class="btn btn-warning" onclick="toggleShow()"><b class="rounded tBorder">&nbsp;?&nbsp;</b></button>&nbsp;
+<button class="btn btn-success" onclick="openNav()">Help</button>&nbsp;
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Advacnced [BETA]</button>
+	  <a href="mechanics.html" target="_blank" rel="noopener noreferrer" class="btn btn-success" onclick="openMec()">Mechanics</a>
+	</div>
+
+			<div class="padded">
+        <p>
+          All 9mm & 9×19mm are 9×19mm Parabellum unless otherwise stated. All Rate of Fire are SEMI-AUTOMATIC unless otherwise stated.
+        </p><p>** - Still in testing phase (test place)</p></div>
+		
+<div class="hide" id="info">Thank you very much for visiting this website! You could have used PF Wiki, but you used this!
+Thank you very much. Here are some PROS of using this:<br>
+<ul>
+<li>Faster results.</li>
+<li>Faster redering time (loading time).</li>
+<li>No Ads!</li>
+
+</ul>
+</div>
+
+			<table class="ui celled table">
+				<thead>
+					<tr>
+						
+						<th @click="sortBy='name'">Name</th>
+                                <th @click="sortBy='cal'">Caliber</th>
+                                <th @click="sortBy='r'">Range (max-min)(studs)</th>
+                                <th @click="sortBy='dmg'">Damage</th>
+                                <th @click="sortBy='cap'">Capacity</th>
+                                <th @click="sortBy='rpm'">Rate of Fire</th>
+                                <th @click="sortBy='multi'">Damage Multiplier (Head/Torso)</th>
+                                <th @click="sortBy='desc'">Description</th>
+                                <th @click="sortBy='rank'">Rank Unlock</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(list, index) in sortedlists" :key="index">
+						
+						<td>{{list.name}}</td>
+                                <td>{{list.cal}}</td>
+                                <td>{{list.r}}</td>
+                                <td>{{list.dmg}}</td>
+                                <td>{{list.cap}}</td>
+                                <td>{{list.rpm}}</td>
+                                <td>{{list.multi}}</td>
+                                <td>{{list.desc}}</td>
+                                <td>{{list.rank}}</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th colspan="100%">{{sortedlists.length}} guns</th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	
+
+
+
+</main>
+
+<script>
+</script>
+	
+  
+
+	
+
+ 
+
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span type="button" class="close" data-dismiss="modal">&times;</span>
+        
+      </div>
+      <div class="modal-body">
+         <h2>Advanced</h2>
+                </div>
+                <div class="modal-body">
+			<div class="form-group"><center>
+                        <input id="searchcont" class="form-control" type="text" oninput="handleInput(event)" /> 			<button class="btn btn-success" id="searchbtn">Search</button></center>
+							<table class="ui celled table">
+								<tr  class="padded">
+									<th class="padded"></th>
+									
+								</tr>
+								<tr  class="padded">
+									<td class="padded" id="suppressed"></td>
+									
+								</tr>
+								<tr  class="padded">
+									<td class="padded" id=""></td>
+									
+								</tr>
+								
+							</table>
+
+							</div>
+                </div>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+
+  
+
+            </div>
+        </div>
+    </div>
+<script src="src/ad.js"></script>
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn c" onclick="closeNav()">&times;</a>
+  <div class="overlay-content middle">
+    <h2>How to use</h2>
+	<p>If some functions fail to work, just try reloading the page. :)</p>
+	<hr>
+	
+	<p>Press the "Advanced" button and enter the name into the searchbar and click "Search" to view the advanced stats. If no results come out, make sure that the hyphens, spacing etc. are correct.</p>
+  </div>
+</div>
+
+
+
+<script>
+ document.getElementById("main").classList.remove("hide");
+ document.getElementById("load").classList.remove("load");
+ document.getElementById("load").classList.add("hide");
+</script>
+</body>
+
+</html>
+
+
+

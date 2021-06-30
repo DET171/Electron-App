@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import "ripple.css";
+
+body {
+  margin: 0;
+  font-size: 20px;
+  font-family: calibri;
+  line-height: 50px;
+}
+
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+
+
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+.fleft {
+  float: left;
+}
+
+table,th,td {
+  padding: 15px;
+}
+
+table{
+  margin: 15px;
+}
+th {
+  text-align: left;
+}
+.c-button {
+  text-decoration: none;
+}
+#stt {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: white;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+  transition-duration: 0.3s;
+}
+
+#stt:hover {
+  background-color: #555;
+}
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+</style>
+<script src="jquery.js"></script>
+<script src="scroll.js"></script>
+
+</head>
+<body onload="typeWriter()">
+<div id="top"></div>
+
+<div class="header">
+  <h2 id="demo"></h2><br>
+  
+  <h2>Roux</h2>
+  <p>Roux is a Rubik's cube speedsolving method invented by Gilles Roux. Roux is based on Blockbuilding and Corners First methods. It is notable for its low movecount, lack of rotations, heavy use of M moves in the last step, and adaptability to One-Handed Solving.</p>
+</div>
+
+<div id="navbar">
+  <a href="#top" title="Go to top" class="fleft c-button c-button--purple"><div class="c-ripple js-ripple"><span class="c-ripple__circle"></span></div><i class="arrow up"></i></a>
+  <a href="#s1" title="Build a 1x2x3 block" class="fleft c-button c-button--purple"><div class="c-ripple js-ripple"><span class="c-ripple__circle"></span></div>Step 1</a>
+  <a href="#s2" title="Build a second 1x2x3 block" class="fleft c-button c-button--purple"><div class="c-ripple js-ripple"><span class="c-ripple__circle"></span></div>Step 2</a>
+  <a href="#s3" title="CMLL" class="fleft c-button c-button--purple"><div class="c-ripple js-ripple"><span class="c-ripple__circle"></span></div>Step 3</a>
+</div>
+
+<div class="content">
+<!--Content start here-->
+
+<table>
+<tr>
+
+
+	<th colspan="2"><h3 id="s1">Step 1: Build a 1x2x3 Block anywhere on the cube.</h3></th></tr>
+<tr>	<td>	<img  class="fleft" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALWUExURf///9jY2AUFBQAAANbW1gwMDEtLS1dXV1VVVVxcXCsrKxUVFVlZWdXV1Q0NDV9fX25ubmtra3NzczU1NRoaGnBwcFtbW2lpaWZmZjMzMxkZGd7e3m1tbWpqam9vb9fX17KysgsLC1ZWVlRUVBQUFFhYWA4ODg8PDwEBAQoKCgMDA2BgYGFhYV5eXjAwMBcXF2NjY2xsbHFxcTQ0NHR0dHJycnd3dzc3NxsbGzAwIz09LDo6Kjw8LDAwIgUFBiYmNisrPCkpOi4uPxUVHQoKDiwsPSYnNgUEBjAjMDwrPDopOj0sPQAAPAAASgAASQAAPgYGAUVFAEpKAElJAExMACUlABISAEtLAEVEAAYIAAA9AABLAABKAAAA3QAA/wAA4hcXBfj4AP//AISEAEBAAPjzABccAADbAAD/AADdAAAA1AAA2RYWBe7uAH9/AD09AO7pABYaAADSAADUAAAA0wAA2O3tAH5+AO3oAADRAADTAAAAMgAANAUFATk5AD4+AB8fAA8PAD8/ADk4AAUHAAAzAAA/AAA+AAAAaAAAfgAAawsLAnV1AHVzAAsNAABnAAB+AABoAAAA5AAA6hgYBYiIAEJCAP/7ABgcAADiAADkAAAA3vPzAIGBAPPuABcbAADWAADYAAAAwQAA6wAA6QAAxhQVBNndAOnuAOjtAOzwAHN1ADg5AOvvAOntANnZABQZAAC/AADrAADpAADBAAUFGAUFHQUFGwYGHQQEFwICABkVABwXABoWAB8ZAA4LAAcGAB0YABsWABkUAAIDAAQWBAYdBgUbBQUdBQUYBdjY0tjY0NjY0dra0rG3sRYEBL8AANIAANEAANUAAGcAADEAANMAABYDBLGxt9rS2tjR2NjQ2NjS2Nrh4RwFBfIAAP8AAIMAAD4AANHY2BsFBekAAH4AADwAAPQAAIQAAD8AANLY2BcFBcAAAGgAADIAANQAAAAAAL3nnX0AAADydFJOU/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AkDR/aQAAAAlwSFlzAAAOwwAADsMBx2+oZAAAA3JJREFUWEe9mM9LG0EUxwMDYS+5lg1z6W0OvXlYQkGKwYNQzMksAbGgINRDcq54DJUWFtpL/oIQpDQXcyj4BxQKEhEjLKWIhYCgl/wLfTP75sfOrHWzRj+z2bzM7Hzz3fdmR0xJQkkhKE7XUFL20tQYBgpW8zFCyllCzAt8k6DMAqunVk13+H6GUIXgmCSo1expLI8QOMJBJKgyjCTgCCOJl8eRX33QUeCxBTnySQWnayg44t8nXyCEjnQPOtIdpiNaoRWAntnl93OV/6WYXaG0hAtrlRD2wMHgEA0/JrGkRMr+Cx8ObxVylKQJkyVzpDsZ5Ii/ix4RkGQQghLBdeg568itWsaCNIVEtJQh5FSNO0ojS62FfM+elrGOHEdwa/J+tJAMJAt0xGxHGc9aMjuYM0cZKzvDUYFnjQsZOZKheNMUdsReJYFijhwZQsXWkZdVtcfnSERaXLLAqs27jpYwFF2a+XMU8O0ONjt441+oXk6OAlbmV+oj8Ik4B8LR8mvRlskbzgq86jyo19lJfSVF9YTV+bgguZCsrb1d44DQwXqj0Vhfb5DWBjY8NUPZkbTWRtg0PorryOHm4SZwCEL9d4J+uGPRa2GgaPUwUDT33gv2QGgrEdpyhCJHqBthIGmHhtBACrVxVNLrYqDo2o7a4X4itG86soUiV8h1ZAg9xtGuFErlaBtHJdEQA4Xj6IPM0WMdqVtLOXJylMfRgnKU09EzVi1rHQ2KOFpY1bLXUSFHT1o1HFS4T7+zjeyaT/+PxoGAdNMMm6SFoSQMMVCQjwm/QOjT5wQS9dKt2+x04E2fomarA4jRDm+diHz5mgBCc+yQQ/vWdsJRcmuj/+bIfdbcZBdbR0O7/DnX0TM6Krwf2Y6Kruync1R4P7rXERe639HDD23h/ShPjnLtkIuq2nPnyP6T3XPK37IdpZ61Qb/f3+r3B+FRu/3NaO3v3e12mm4EJ/Oao/B4tAdtdAxCJwgJLUh2T2we5CdCSpSOx2M6pmfxxcVkog7gcsYj6E0OYHYDPaoLOs7jM/pbNP3//1V8/TfN7R0GitkNBor4Cqdrpo7QzQwDxewWA8l1PMXpGlfo1hWyHeUTyuFoEru/1kzjCY5Kcjn6g9M10xgHFW6y7/LkiMbnFyai/LzOCij/JS+/CXGFTvFXlznBHJVK/wBb2jT3W2COuAAAAABJRU5ErkJggg=="></img></td>
+		<td><p>You can use F2L to build the block. The F2L tutorial can be found <a href="../cfop/index.html">here</a>.</p></td>
+
+<!--Step 1 end-->
+</tr>
+
+
+
+<tr><th colspan="2">
+	<h3 id="s2">Step 2: Build a second 1x2x3 block opposite of the first 1x2x3 block, without disrupting the first 1x2x3 block.</h3> </th></tr>
+		<tr><td><img class="fleft" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAABHCAMAAABibqotAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKCUExURf///7+/vwAAALu7uwgICFVVVVdXV1ZWVlhYWA4ODjY2NlxcXLq6ugsLC2lpaWtra2pqam5ubhISEkNDQ3JycgoKCmVlZWdnZ2ZmZhEREUBAQG1tbcTExGxsbG9vb0RERHNzc729vYiIiAcHB0dHR0lJSUhISEpKSgwMDC0tLU1NTQMDAw8PDxAQEFRUVGhoaEFBQVlYWW5sbmloaXBucEtKS0tLSnBwbmlpaG5ubFlZWBMJExcMFxYKFhAHEAEBAQICAgYGBgEBAhAQBxcXDBYWChcXCxMTCACNAACpAACoAACqAAB2AB8ZH6emp6ioqKenpxsbG6mpqaenph8fGQAAdgAAqAAApwAAiwDjAAD/AAC/ADEpMSwsLDExKAAAvwAA/wAA4wDVAACzAC4mLv/9/ykpKZ+fn////S4uJgAAswAA1QCGAACiAACgAABxAB0YHZ+en6CgoKGhoRoaGmRkZKKiop+fnh0dGAAAcAAAoQAAnwAAoAAAhQAjAAAqAAApAAAdAAgGCCoqKggIBgAAHQAAKgAAKQAAIgDaAAC3AC8nL6Ojoy8vJwAAtwAA2gDXAAC0AAAAtAAA1wDYAAC1AC8mLy8vJgAAtQAA2ADUAAD9AACyAP39//3///7//56fn/3//QAAsgAA/QAA1AAfAAAnAAAbAAcHCSYuLicvLwYICBgdHSkxMQcJBwAAGwAAJwAAH7+1v7+zv8K2woaHjxsAALIAALQAALMAAB0AAHAAALYAAIaPh8LCtr+/s7+/tb3KyikAAP8AACsAAKgAALO/vycAAP0AAJ8AALK/v6YAALW/vyAAANQAANUAANYAACIAAIUAANcAAAEAAAAAACJmjOwAAADWdFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wAFO/JSAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADHElEQVRYR82YsWsbMRTGjQ4vnjv4yoEPj50LpVC6JJt7HYwbSgNpC14OSoonUwqeWzB0ayBz4CAYPDR4SUkIxUMyBC7+h6qTnk46vWdLubqlPwnf8/np86cnnULcUASsDgGM1gSsacFaEChaOAXrRKwdt03isGPd6ISxdYf0Ax+WEDoQlbAIRmsClBR2IFAQOh5++LwgUmCdkKyPBbPm5ecnYjEvtNFEnSuN19l8y1uo6xMAXdaxCJMmRABfd4gUrAujgwZsqJB3C3yDugPjG6wpq9B0rhex7pASNwsdGaIkXp+nEEpIHTBR+qGSHlZ1qHWXOoYfMgkChcOPiCg/rQcQAeu/6l5+XPUR0YakEocfme328/frs3G90PNetz4ez3ulPjJ0+yF01ODN9fGps7xu8oN0XPURIU6K7frELX6OVYGvkuv1WIT1/DwSyk8KnedAcSZVGz+2jHfFiWW+KxrbCXcEXOewJ3iR9C3CGAJFG6UMXu0JXnOdr28Ex9/hwC5p9SFQBAkEJQcn7wTvtU4P6SS2zgjr7Emdb1pnHyUlIwgUfR8dDz/jFIKS5K3WOZY6+0gn3ZafKQQKXJ8U/JwYfnB9xhAotlWfEarPgPCD62P7mW6pPmOkQ/n5d/VZv38MP1inXn2Ied2vPkoH+7Hn1UfzOgCdws+HQ8HH5OWowjRsTyGUjNthH0LF7qfPguL8mUgylhikvM93xUX3GRMXo7H5F8F807zQehHrbszrT3SOsE4Pr5fH/iHW3b1/vOZV6/z5356vFHRMP0P4rMTj+VLz2rxe7udLzcv0g+flrg+1f+rUZ0D4QV/mc/7U2j/E+eOzXj77h/CD1x35QfU5Mvbh+v1s/33H9TGf02yS8T7J5slpcjqc6Z49O51VWzbkKemMd9HSNJPHWHGORcEZbz+ibv6TszR6fl7cMThflB/yF35ZLrpRcBFcXkb6//ir/JdFvoRAscQp+PeNM5x0DYGC0LmA0Zobt59rnHIDozVBLT9Yp54f4ncbt46fn8VqdVu2gvxudWuyusv5XZ3D24L6HakOoNNo/AZx+Gs0sR3b5gAAAABJRU5ErkJggg=="></img>
+</td><td>	<p>After this step, there should be two 1x2x3 blocks: one on the lower left side, and one lower right side, leaving the U slice and M slice free to move.</p>	</td>
+</tr>
+	<!--Step 2 end-->
+</table>
+<div style="padding: 30px;">
+<h3 id="s3">Step 3: CMLL (Corners of the last layer)</h3>
+<p>Simultaneously orient and permute the remaining four corners on the top layer (U-slice). If performed in one step, there are 42 algorithms. This set of algorithms is commonly referred to as CMLL. It is also possible to use COLL and some other CLL algorithm sets. However, these sets are not as efficient or ergonomic as CMLL because they preserve pieces which CMLL does not. The remaining four corners can also be solved in two steps. This is usually how beginners start using the Roux method because it requires only 9 algorithms. The first step orients the four corners using <b>seven algorithms (2-look OLL)</b>. This is called OCLL. The second step permutes the corners using two algorithms (T-Perm or Y-Perm).</p>
+<p>CMLL Algorithms can be found <a href="https://cuberoot.me/wp-content/uploads/2019/11/453-Roux-CMLL-1.pdf">here</a>.
+</div>
+
+
+
+<!--Content end here-->
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+<script src="ripple.js"></script>
+<script>
+var i = 0;
+var txt = 'The idiot\'s guide to...';
+var speed = 90;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script>
+
+</body>
+</html>
