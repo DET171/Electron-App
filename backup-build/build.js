@@ -3,8 +3,7 @@ const electronInstaller = require('electron-winstaller');
 async function build() {
 	try {
 		await electronInstaller.createWindowsInstaller({
-			appDirectory: './out/Pages-win32-x64',
-			// outputDirectory: './bin/installer/installer64',
+			appDirectory: '../out/Calculator-win32-x64',
 			authors: 'Admiral Canaris',
 			loadingGif: 'loader.gif',
 		});

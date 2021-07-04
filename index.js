@@ -1,7 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 if (handleSquirrelEvent()) {
-	// squirrel event handled and app will exit in 1000ms, so don't do anything else
 	return;
 }
 
@@ -18,6 +17,7 @@ function handleSquirrelEvent() {
 	const exeName = path.basename(process.execPath);
 
 	const spawn = function(command, args) {
+		// eslint-disable-next-line no-unused-vars
 		let spawnedProcess, error;
 
 		try {

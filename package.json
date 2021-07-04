@@ -1,16 +1,17 @@
 {
-  "name": "Pages",
-  "version": "1.0.2",
+  "name": "calculator",
+  "version": "0.17.2",
   "description": "An Electron Application",
   "main": "index.js",
   "scripts": {
     "start": "electron-forge start",
     "import": "electron-forge import",
     "package": "electron-forge package",
-    "build": "node build.js",
-    "make": "electron-forge make"
+    "build": "node backup-build/build.js",
+    "make": "electron-forge make",
+    "serve": "electron ."
   },
-  "author": "Admiral Canaris & m110",
+  "author": "Admiral Canaris",
   "license": "MIT",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.57",
@@ -31,7 +32,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "Pages"
+            "name": "calculator"
           }
         },
         {

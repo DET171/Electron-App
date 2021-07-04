@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-	var newItem = document.createElement('BUTTON');
+	/* var newItem = document.createElement('BUTTON');
 	var textnode = document.createTextNode('←');
 	newItem.appendChild(textnode);
 	const onclick = document.createAttribute('onclick');
@@ -8,5 +8,5 @@ window.addEventListener('DOMContentLoaded', () => {
 	newItem.setAttributeNode(onclick);
 	var list = document.getElementsByTagName('BODY');
 	list = list[0];
-	list.insertBefore(newItem, list.childNodes[0]);
+	list.insertBefore(newItem, list.childNodes[0]);*/
 });

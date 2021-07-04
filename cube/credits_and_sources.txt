@@ -1,3 +1,0 @@
-The pictures of each algorithm in PLL is from [http://jperm.net/algs/pll]
-
-The description of each part (Cross, F2L, OLL, and PLLL) are from [https://www.speedsolving.com/wiki/index.php/CFOP_method]
